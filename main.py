@@ -28,6 +28,14 @@ async def on_member_remove(member):
     await channel.send(f'{member} leave the server Q^Q!')
     #print(f'{member} leave the server Q^Q!')
 
+@bot.command()
+async def add(ctx, a: int, b: int):
+    await ctx.send(a + b)
+
+@bot.command()
+async def ping(ctx):
+    await ctx.send("I got a ping!")
+
 #讓bot在Discord伺服器上啟動(需要密鑰)
 #if os.environ.get('DISCORD_TOKEN'):
 #    bot.run(os.environ.get('DISCORD_TOKEN'))
