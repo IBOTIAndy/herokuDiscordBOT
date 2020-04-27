@@ -36,6 +36,15 @@ async def add(ctx, a: int, b: int):
 async def ping(ctx):
     await ctx.send("I got a ping!")
 
+@bot.command()
+async def rdrrN(ctx):
+    pic = discord.File('C:\\pythonwork\\Try_Bot\\pic\\rdrr01.png')
+    await ctx.send(file = pic)
+
+@bot.command()
+async def LUL(ctx):
+    pic = discord.File('C:\\pythonwork\\Try_Bot\\pic\\lul.png')
+    await ctx.send(file = pic)
 #讓bot在Discord伺服器上啟動(需要密鑰)
 #if os.environ.get('DISCORD_TOKEN'):
 #    bot.run(os.environ.get('DISCORD_TOKEN'))
