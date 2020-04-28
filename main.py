@@ -3,6 +3,7 @@ import discord
 from discord.ext import commands
 import os
 import json
+import random
 
 with open('set.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
@@ -45,6 +46,12 @@ async def rdrrN(ctx):
 async def LUL(ctx):
     pic = discord.File('C:\\pythonwork\\Try_Bot\\pic\\lul.png')
     await ctx.send(file = pic)
+
+@bot.command()
+async def rdrrNWeb(ctx):
+    random_pic = random.choice(data['Url_Pic'])
+    #pic = ['Url_Pic']
+    await ctx.send(random_pic)
 #讓bot在Discord伺服器上啟動(需要密鑰)
 #if os.environ.get('DISCORD_TOKEN'):
 #    bot.run(os.environ.get('DISCORD_TOKEN'))
