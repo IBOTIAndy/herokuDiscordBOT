@@ -9,6 +9,7 @@ with open('set.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
 
 bot = commands.Bot(command_prefix='!')
+bot.load_extension('showPicGif')
 
 #當bot成功上線時輸出成功訊息
 @bot.event
@@ -45,13 +46,13 @@ async def rdrrN(ctx):
 @bot.command()
 async def LUL(ctx):
     pic = discord.File('C:\\pythonwork\\Try_Bot\\pic\\lul.png')
-    await ctx.send(file = pic)"""
+    await ctx.send(file = pic)
 
 @bot.command()
 async def rdrrNWeb(ctx):
     random_pic = random.choice(data['Url_Pic'])
     #pic = ['Url_Pic']
-    await ctx.send(random_pic)
+    await ctx.send(random_pic)"""
 #讓bot在Discord伺服器上啟動(需要密鑰)
 #if os.environ.get('DISCORD_TOKEN'):
 #    bot.run(os.environ.get('DISCORD_TOKEN'))
