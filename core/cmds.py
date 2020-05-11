@@ -1,11 +1,25 @@
 #輸入Discord用的函式庫
 import discord
 from discord.ext import commands
+from core.classes import Cog_Extension
+import random
 import os
 import json
-import random
 
-with open('set.json', 'r', encoding = 'utf8') as jfile:
+class cmds(Cog_Extension):
+    @commands.command()
+    async def add(self, ctx, a: int, b: int):
+        await ctx.send(a + b)
+
+    @commands.command()
+    async def ping(self, ctx):
+        await ctx.send("I got a ping!")
+    
+def setup(bot):
+    bot.add_cog(cmds(bot))
+
+
+"""with open('set.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
 
 bot = commands.Bot(command_prefix='!')
@@ -38,20 +52,22 @@ async def add(ctx, a: int, b: int):
 async def ping(ctx):
     await ctx.send("I got a ping!")
 
-"""@bot.command()
+@bot.command()
 async def rdrrN(ctx):
     pic = discord.File('C:\\pythonwork\\Try_Bot\\pic\\rdrr01.png')
     await ctx.send(file = pic)
+
 @bot.command()
 async def LUL(ctx):
     pic = discord.File('C:\\pythonwork\\Try_Bot\\pic\\lul.png')
     await ctx.send(file = pic)
+
 @bot.command()
 async def rdrrNWeb(ctx):
     random_pic = random.choice(data['Url_Pic'])
     #pic = ['Url_Pic']
-    await ctx.send(random_pic)"""
+    await ctx.send(random_pic)
 #讓bot在Discord伺服器上啟動(需要密鑰)
 #if os.environ.get('DISCORD_TOKEN'):
 #    bot.run(os.environ.get('DISCORD_TOKEN'))
-bot.run(data['DISCORD_TOKEN'])
+bot.run(data['DISCORD_TOKEN'])"""
