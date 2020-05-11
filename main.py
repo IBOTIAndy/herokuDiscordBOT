@@ -9,7 +9,9 @@ with open('set.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
 
 bot = commands.Bot(command_prefix='!')
-#bot.load_extension('showPicGif')
+
+bot.load_extension('cmd.cmds')
+bot.load_extension('cmd.showPicGif')
 
 #當bot成功上線時輸出成功訊息
 @bot.event
@@ -30,7 +32,7 @@ async def on_member_remove(member):
     await channel.send(f'{member} leave the server Q^Q!')
     #print(f'{member} leave the server Q^Q!')
 
-@bot.command()
+"""@bot.command()
 async def add(ctx, a: int, b: int):
     await ctx.send(a + b)
 
@@ -38,7 +40,7 @@ async def add(ctx, a: int, b: int):
 async def ping(ctx):
     await ctx.send("I got a ping!")
 
-"""@bot.command()
+@bot.command()
 async def rdrrN(ctx):
     pic = discord.File('C:\\pythonwork\\Try_Bot\\pic\\rdrr01.png')
     await ctx.send(file = pic)
@@ -51,7 +53,12 @@ async def rdrrNWeb(ctx):
     random_pic = random.choice(data['Url_Pic'])
     #pic = ['Url_Pic']
     await ctx.send(random_pic)"""
+#for pyFile in os.listdir('./cmd'):
+#    if pyFile.endswith('.py'):
+#        bot.load_extension(f'cmd.{pyFile[:-3]}')
 #讓bot在Discord伺服器上啟動(需要密鑰)
 #if os.environ.get('DISCORD_TOKEN'):
 #    bot.run(os.environ.get('DISCORD_TOKEN'))
-bot.run(data['DISCORD_TOKEN'])
+
+if __name__ == "__cmds__":
+    bot.run(data['DISCORD_TOKEN'])
