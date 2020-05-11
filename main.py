@@ -57,4 +57,3 @@ async def rdrrNWeb(ctx):
 #if os.environ.get('DISCORD_TOKEN'):
 #    bot.run(os.environ.get('DISCORD_TOKEN'))
 bot.run(data['DISCORD_TOKEN'])
-#bot.run('NzAzMDc0ODg3NjQ3ODg3NDYx.XqJf-g.CI8Ejj6lzfnGLDcEcMWWEqeh2ZA')
