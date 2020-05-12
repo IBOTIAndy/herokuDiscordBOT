@@ -24,7 +24,7 @@ class showPicGif(commands.Cog):
         await ctx.send(file = pic)
 
     @commands.command()
-    async def rdrrNWeb(self, ctx):
+    async def WebRandom(self, ctx):
         random_pic = random.choice(data['Url_Pic'])
         #pic = ['Url_Pic']
         await ctx.send(random_pic)

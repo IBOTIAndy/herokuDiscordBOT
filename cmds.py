@@ -14,7 +14,12 @@ class cmds(commands.Cog):
 
     @commands.command()
     async def ping(self, ctx):
-        await ctx.send("I got a ping!")
+        await ctx.send("I got a ping!\n")
+        await ctx.send(f'{round(self.bot.latency*1000)}(ms)')
+
+    @commands.command()
+    async def pan(self, ctx):
+        await ctx.send("你好盤")
     
 def setup(bot):
     bot.add_cog(cmds(bot))
