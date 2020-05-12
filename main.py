@@ -1,5 +1,7 @@
 #輸入Discord用的函式庫
 from discord.ext import commands
+#from code import cmds, showPicGif #InputError
+#from code.cmds import cmds #ModuleNotFoundError
 import os
 import json
 with open('set.json', 'r', encoding = 'utf8') as jfile:
@@ -9,7 +11,6 @@ bot = commands.Bot(command_prefix='!')
 
 #bot.load_extension('code.cmds')     #不明原因錯誤: 程式檔放入資料夾內便無法load
 #bot.load_extension('code.showPicGif')
-
 bot.load_extension('cmds')
 bot.load_extension('showPicGif')
 
