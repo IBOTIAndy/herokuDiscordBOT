@@ -7,7 +7,7 @@ with open('set.json', 'r', encoding = 'utf8') as jfile:
 
 bot = commands.Bot(command_prefix='!')
 
-#bot.load_extension('code.cmds')
+#bot.load_extension('code.cmds')     不明原因錯誤: 程式檔放入資料夾內便無法load
 #bot.load_extension('code.showPicGif')
 
 bot.load_extension('cmds')

@@ -2,9 +2,7 @@
 import discord
 from discord.ext import commands
 #from core.classes import Cog_Extension
-import random
 import os
-import json
 
 class cmds(commands.Cog):
     @commands.command()
