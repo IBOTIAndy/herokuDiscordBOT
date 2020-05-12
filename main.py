@@ -10,13 +10,18 @@ with open('set.json', 'r', encoding = 'utf8') as jfile:
 
 bot = commands.Bot(command_prefix='!')
 
-bot.load_extension('cmd.cmds')
-bot.load_extension('cmd.showPicGif')
+bot.load_extension('cmds')
+bot.load_extension('showPicGif')
+
+#bot.load_extension('code.cmds')
+#bot.load_extension('code.showPicGif')
 
 #當bot成功上線時輸出成功訊息
 @bot.event
 async def on_ready():
     print("Bot works successfully!")
+    for pyFile in os.listdir('./code'):
+        print(pyFile)
 
 #當新成員加入伺服器時輸出訊息
 @bot.event
@@ -32,27 +37,6 @@ async def on_member_remove(member):
     await channel.send(f'{member} leave the server Q^Q!')
     #print(f'{member} leave the server Q^Q!')
 
-"""@bot.command()
-async def add(ctx, a: int, b: int):
-    await ctx.send(a + b)
-
-@bot.command()
-async def ping(ctx):
-    await ctx.send("I got a ping!")
-
-@bot.command()
-async def rdrrN(ctx):
-    pic = discord.File('C:\\pythonwork\\Try_Bot\\pic\\rdrr01.png')
-    await ctx.send(file = pic)
-@bot.command()
-async def LUL(ctx):
-    pic = discord.File('C:\\pythonwork\\Try_Bot\\pic\\lul.png')
-    await ctx.send(file = pic)
-@bot.command()
-async def rdrrNWeb(ctx):
-    random_pic = random.choice(data['Url_Pic'])
-    #pic = ['Url_Pic']
-    await ctx.send(random_pic)"""
 #for pyFile in os.listdir('./cmd'):
 #    if pyFile.endswith('.py'):
 #        bot.load_extension(f'cmd.{pyFile[:-3]}')
@@ -60,5 +44,5 @@ async def rdrrNWeb(ctx):
 #if os.environ.get('DISCORD_TOKEN'):
 #    bot.run(os.environ.get('DISCORD_TOKEN'))
 
-if __name__ == "__cmds__":
+if __name__ == "__main__":
     bot.run(data['DISCORD_TOKEN'])
