@@ -1,7 +1,7 @@
 #輸入Discord用的函式庫
 import discord
 from discord.ext import commands
-from core.classes import Cog_Extension
+#from core.classes import Cog_Extension
 import random
 import os
 import json
@@ -9,7 +9,10 @@ import json
 with open('set.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
 #from core.classes import Cog_Extension   
-class showPicGif(Cog_Extension):
+class showPicGif(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+
     @commands.command()
     async def rdrrN(self, ctx):
         pic = discord.File('C:\\pythonwork\\Try_Bot\\pic\\rdrr01.png')
