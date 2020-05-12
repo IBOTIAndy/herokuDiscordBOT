@@ -1,20 +1,17 @@
 #輸入Discord用的函式庫
-import discord
 from discord.ext import commands
 import os
 import json
-import random
-
 with open('set.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
 
 bot = commands.Bot(command_prefix='!')
 
-bot.load_extension('cmds')
-bot.load_extension('showPicGif')
-
 #bot.load_extension('code.cmds')
 #bot.load_extension('code.showPicGif')
+
+bot.load_extension('cmds')
+bot.load_extension('showPicGif')
 
 #當bot成功上線時輸出成功訊息
 @bot.event

@@ -1,12 +1,12 @@
 #輸入Discord用的函式庫
 import discord
 from discord.ext import commands
-from core.classes import Cog_Extension
+#from core.classes import Cog_Extension
 import random
 import os
 import json
 
-class cmds(Cog_Extension):
+class cmds(commands.Cog):
     @commands.command()
     async def add(self, ctx, a: int, b: int):
         await ctx.send(a + b)
