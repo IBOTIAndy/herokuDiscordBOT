@@ -40,11 +40,14 @@ async def on_member_remove(member):
 
 #catch the webside
 @bot.command()
-async def NTUT(ctx, arg):
+async def NTUT(ctx, *, arg):
     url = "https://www.ntut.edu.tw/"
     r = requests.get(url)
     soup = BeautifulSoup(r.text, "lxml")
-    await ctx.send(arg)
+
+    inputstring = arg
+    x = inputstring.split()
+    await ctx.send(x)
 
 if __name__ == "__main__":
     bot.run(data['DISCORD_TOKEN'])
