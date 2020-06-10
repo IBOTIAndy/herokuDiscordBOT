@@ -15,12 +15,12 @@ class showPicGif(commands.Cog):
 
     @commands.command()
     async def rdrrN(self, ctx):
-        pic = discord.File('C:\\pythonwork\\Try_Bot\\pic\\rdrr01.png')
+        pic = discord.File('/home/linux/Desktop/Try0610/Try_Bot/pic/rdrr01.png')
         await ctx.send(file = pic)
 
     @commands.command()
     async def LUL(self, ctx):
-        pic = discord.File('C:\\pythonwork\\Try_Bot\\pic\\lul.png')
+        pic = discord.File('/home/linux/Desktop/Try0610/Try_Bot/pic/lul.png')
         await ctx.send(file = pic)
 
     @commands.command()
@@ -28,6 +28,11 @@ class showPicGif(commands.Cog):
         random_pic = random.choice(data['Url_Pic'])
         #pic = ['Url_Pic']
         await ctx.send(random_pic)
+
+    @commands.command()
+    async def KoLianNa(self, ctx):
+        pic = data['KoLianNa']
+        await ctx.send(pic)
 
 def setup(bot):
     bot.add_cog(showPicGif(bot))
