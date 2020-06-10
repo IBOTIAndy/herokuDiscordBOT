@@ -1,9 +1,9 @@
 #輸入Discord用的函式庫
 from discord.ext import commands
-#from code import cmds, showPicGif #InputError
-#from code.cmds import cmds #ModuleNotFoundError
+from bs4 import BeautifulSoup
 import os
 import json
+import requests
 with open('set.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
 
@@ -12,6 +12,7 @@ bot = commands.Bot(command_prefix='!')
 bot.load_extension('code.cmds')     #不明原因錯誤: 程式檔放入資料夾內便無法load
 bot.load_extension('code.showPicGif')
 bot.load_extension('code.listener')
+#bot.load_extension('code.fastcar')
 #bot.load_extension('cmds')
 #bot.load_extension('showPicGif')
 
@@ -37,12 +38,13 @@ async def on_member_remove(member):
     await channel.send(f'{member} leave the server Q^Q!')
     #print(f'{member} leave the server Q^Q!')
 
-#for pyFile in os.listdir('./cmd'):
-#    if pyFile.endswith('.py'):
-#        bot.load_extension(f'cmd.{pyFile[:-3]}')
-#讓bot在Discord伺服器上啟動(需要密鑰)
-#if os.environ.get('DISCORD_TOKEN'):
-#    bot.run(os.environ.get('DISCORD_TOKEN'))
+#catch the webside
+@bot.command()
+async def NTUT(ctx, arg):
+    url = "https://www.ntut.edu.tw/"
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, "lxml")
+    await ctx.send(arg)
 
 if __name__ == "__main__":
     bot.run(data['DISCORD_TOKEN'])
