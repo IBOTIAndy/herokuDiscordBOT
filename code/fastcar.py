@@ -6,6 +6,7 @@ from lxml import etree
 import os
 import json
 import requests
+import re
 
 with open('set.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
@@ -40,10 +41,27 @@ class fastcar(commands.Cog):
                 await ctx.send(html)
 
     @commands.command()
-    async def Pixiv(self, ctx, arg):
-        url = "https://www.pixiv.net/"
-        r = requests.get(url)
-        soup = BeautifulSoup(r.text, "lxml")
+    async def Car(self, ctx, arg):
+        if arg.isdigit():
+            if len(arg) == 8:
+                output = data['Pixiv'] + arg
+                if LinkDeadOrAlive(data['Pixiv'], output):
+                    await ctx.send(output)
+                else:
+                    await ctx.send("404 not found. {0.author}同志翻車了\n".format(message))
+            if len(arg) == 6:
+                output = data['nhentai'] + arg
+                if LinkDeadOrAlive(data['nhentai'], output):
+                    await ctx.send(output)
+                else:
+                    await ctx.send("404 not found. {0.author}同志翻車了\n".format(message))
+        else:
+            await ctx.send("Please input Num!")
+
+def LinkDeadOrAlive(url, output):
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, "lxml")
+    return 1
         
 def setup(bot):
     bot.add_cog(fastcar(bot))
