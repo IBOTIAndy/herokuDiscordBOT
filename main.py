@@ -1,6 +1,7 @@
 #輸入Discord用的函式庫
 from discord.ext import commands
 from bs4 import BeautifulSoup
+from lxml import etree
 import os
 import json
 import requests
@@ -38,7 +39,7 @@ async def on_member_remove(member):
     await channel.send(f'{member} leave the server Q^Q!')
     #print(f'{member} leave the server Q^Q!')
 
-#catch the webside
+#catch the webside of NTUT
 @bot.command()
 async def NTUT(ctx, *, arg):
     url = "https://www.ntut.edu.tw/"
@@ -48,6 +49,28 @@ async def NTUT(ctx, *, arg):
     inputstring = arg
     x = inputstring.split()
     await ctx.send(x)
+    
+    if x[0] == "id":
+        html = soup.find(id = x[1]).text
+        await ctx.send(len(html))
+        if len(html) > 2000:
+            await ctx.send("This html is too long that can't output.\n")
+        else:
+            await ctx.send(html)
+
+    elif x[0] == "class":
+        html = soup.find(class_ = x[1]).text
+        if len(html) > 2000:
+            await ctx.send("This html is too long that can't output.\n")
+        else:
+            await ctx.send(html)
+
+#catch the webside of PIXIV
+@bot.command()
+async def Pixiv(ctx, arg):
+    url = "https://www.pixiv.net/"
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, "lxml")
 
 if __name__ == "__main__":
     bot.run(data['DISCORD_TOKEN'])
