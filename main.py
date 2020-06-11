@@ -5,6 +5,7 @@ from lxml import etree
 import os
 import json
 import requests
+
 with open('set.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
 
