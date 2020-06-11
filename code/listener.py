@@ -20,6 +20,12 @@ class listener(commands.Cog):
         elif message.content == "test":
             await message.channel.send('Message from {0.author}: {0.content}\n'.format(message))
 
+        elif message.author != "Наш робот Discord#8637" and "我們" in message.content:
+            pass
+
+        elif message.author != "Наш робот Discord#8637" and "我" in message.content:
+            await message.channel.send("{0.author}同志。不單只是我，是「我們」\n".format(message))
+
 def setup(bot):
     bot.add_cog(listener(bot))
     #bot.add_cog(showPic(bot))
