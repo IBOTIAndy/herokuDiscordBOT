@@ -45,23 +45,27 @@ class fastcar(commands.Cog):
         if arg.isdigit():
             if len(arg) == 8:
                 output = data['Pixiv'] + arg
-                if LinkDeadOrAlive(data['Pixiv'], output):
+                if LDOApixiv(output):
                     await ctx.send(output)
                 else:
-                    await ctx.send("404 not found. {0.author}同志翻車了\n".format(message))
+                    await ctx.send("404 not found. 同志翻車了\n")
             if len(arg) == 6:
                 output = data['nhentai'] + arg
-                if LinkDeadOrAlive(data['nhentai'], output):
-                    await ctx.send(output)
-                else:
-                    await ctx.send("404 not found. {0.author}同志翻車了\n".format(message))
+                await ctx.send(output)
         else:
             await ctx.send("Please input Num!")
 
-def LinkDeadOrAlive(url, output):
-    r = requests.get(url)
+def LDOApixiv(output):
+    r = requests.get(output)
     soup = BeautifulSoup(r.text, "lxml")
-    return 1
+    try:
+        html = soup.find(class_ = "error-title").text
+        if html == 'エラーが発生しました':
+            return 0
+    except AttributeError:
+            return 1
+    else:
+        print("I don't know what happen. Check Log first.\n")
         
 def setup(bot):
     bot.add_cog(fastcar(bot))
