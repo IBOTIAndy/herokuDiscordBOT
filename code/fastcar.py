@@ -48,10 +48,10 @@ class fastcar(commands.Cog):
                 if LDOApixiv(output):
                     await ctx.send(output)
                 else:
-                    await ctx.send("404 not found. 同志翻車了\n")
+                    await ctx.send("404 not found. 發車到P網的同志翻車了\n")
             if len(arg) == 6:
                 output = data['nhentai'] + arg
-                await ctx.send(output)
+                await ctx.send('||' + output + '||')
         else:
             await ctx.send("Please input Num!")
 
@@ -69,6 +69,4 @@ def LDOApixiv(output):
         
 def setup(bot):
     bot.add_cog(fastcar(bot))
-    #bot.add_command(NTUT)
-    
 

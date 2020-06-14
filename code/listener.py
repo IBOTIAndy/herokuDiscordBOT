@@ -14,8 +14,8 @@ class listener(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if ("mac" or "macbook") in message.content:
-            await message.channel.send('{0.author}同志想換美帝國主義的電腦? 該受到人民正義的法槌的制裁了(拿起AK47\n'.format(message, ))
+        if ("mac" or "macbook" or "iphone") in message.content:
+            await message.channel.send('{0.author}同志想換美帝國主義的電腦? 判勞改10年\n'.format(message, ))
 
         elif message.content == "test":
             await message.channel.send('Message from {0.author}: {0.content}\n'.format(message))
@@ -26,9 +26,11 @@ class listener(commands.Cog):
         elif message.author != "Наш робот Discord#8637" and "我" in message.content:
             await message.channel.send("{0.author}同志。不單只是我，是「我們」\n".format(message))
 
+        #elif message.author != "Наш робот Discord#8637" and "盤" in message.content:
+            #await message.channel.send("{0.author}同志。盤是資本主義的糜爛奢華之象徵，必須由共產人民團結一致共同打倒！\n".format(message))
+
 def setup(bot):
     bot.add_cog(listener(bot))
-    #bot.add_cog(showPic(bot))
 
 
 

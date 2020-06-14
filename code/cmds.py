@@ -1,7 +1,6 @@
 #輸入Discord用的函式庫
 import discord
 from discord.ext import commands
-#from core.classes import Cog_Extension
 import random
 import os
 import json
@@ -21,7 +20,6 @@ class cmds(commands.Cog):
     @commands.command()
     async def ping(self, ctx):
         await ctx.send("Товарищ! водка!!")
-        #await ctx.send('{0}'.format(round(command.latency, 1)))
 
     @commands.command()
     async def pan(self, ctx):
