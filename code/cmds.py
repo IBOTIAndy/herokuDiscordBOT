@@ -35,5 +35,9 @@ class cmds(commands.Cog):
         await ctx.send("Это наш национальный гимн\n")
         await ctx.send(data['USSRExtreme'])
 
+    @commands.command()
+    async def PS5(self, ctx):
+        await ctx.send("這是空氣清淨機\n")
+
 def setup(bot):
     bot.add_cog(cmds(bot))
