@@ -66,6 +66,11 @@ def LDOApixiv(output):
             return 1
     else:
         print("I don't know what happen. Check Log first.\n")
+
+def LDOAnhentai(output):
+    r = requests.get(output)
+    soup = BeautifulSoup(r.text, "lxml")
+    return 1
         
 def setup(bot):
     bot.add_cog(fastcar(bot))
