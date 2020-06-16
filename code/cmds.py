@@ -17,14 +17,19 @@ class cmds(commands.Cog):
 #await = ?
     @commands.command()
     async def helps(self, ctx):
-        await ctx.send("we own these order:\n")
-        await ctx.send("!add [number1] [number2]")
-        await ctx.send("!sub [number1] [number2]")
-        await ctx.send("!ping")
-        await ctx.send("!pan")
-        await ctx.send("!USSR")
-        await ctx.send("!USSRExtreme")
-        await ctx.send("!PS5")
+        await ctx.send("we own these order:\n!add [number1] [number2]\n!sub [number1] [number2]\n!ping\n!pan\n!USSR\n!USSRExtreme\n!PS5")
+#        await ctx.send("we own these order:\n")
+#        await ctx.send("!add [number1] [number2]")
+#        await ctx.send("!sub [number1] [number2]")
+#        await ctx.send("!ping")
+#        await ctx.send("!pan")
+#        await ctx.send("!USSR")
+#        await ctx.send("!USSRExtreme")
+#        await ctx.send("!PS5")
+
+    @commands.command()
+    async def HTC(self, ctx):
+        await ctx.send("Never want to FULL COMBO.\nFuck you HTC touch screen.")
 
     @commands.command()
     async def add(self, ctx, a: int, b: int):
@@ -34,6 +39,17 @@ class cmds(commands.Cog):
     async def sub(self, ctx, a: int, b: int):
         await ctx.send(a - b)
 
+    @commands.command()
+    async def mul(self, ctx, a: int, b: int):
+        await ctx.send(a * b)
+    
+    @commands.command()
+    async def div(self, ctx, a: int, b: int):
+        if b == 0:
+            await ctx.send("don't / 0 Plz.")
+        else:
+            await ctx.send(a / b)
+     
     @commands.command()
     async def ping(self, ctx):
         await ctx.send("Товарищ! водка!!")
