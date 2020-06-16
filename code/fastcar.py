@@ -46,11 +46,12 @@ class fastcar(commands.Cog):
             if len(arg) == 8:
                 output = data['Pixiv'] + arg
                 if LDOApixiv(output):
-                    await ctx.send(output)
+                    await ctx.send('||' + output + '||')
                 else:
                     await ctx.send("404 not found. 發車到P網的同志翻車了\n")
             if len(arg) == 6:
                 output = data['nhentai'] + arg
+                await ctx.send("以下連結內容基本母湯，不建議在公開場合點擊，也有可能只是404而已\n")
                 await ctx.send('||' + output + '||')
         else:
             await ctx.send("Please input Num!")
@@ -61,7 +62,7 @@ def LDOApixiv(output):
     try:
         html = soup.find(class_ = "error-title").text
         if html == 'エラーが発生しました':
-            return 0
+            return 0        
     except AttributeError:
             return 1
     else:

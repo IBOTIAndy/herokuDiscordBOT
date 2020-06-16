@@ -26,8 +26,8 @@ class listener(commands.Cog):
         elif message.author != "Наш робот Discord#8637" and "我" in message.content:
             await message.channel.send("{0.author}同志。不單只是我，是「我們」\n".format(message))
 
-        #elif message.author != "Наш робот Discord#8637" and "盤" in message.content:
-            #await message.channel.send("{0.author}同志。盤是資本主義的糜爛奢華之象徵，必須由共產人民團結一致共同打倒！\n".format(message))
+        elif message.author != "Наш робот Discord#8637" and "盤" in message.content:
+            await message.channel.send("{0.author}同志。此字乃是資本主義的糜爛奢華之象徵，必須由共產人民團結一致共同打倒！\n".format(message))
 
 def setup(bot):
     bot.add_cog(listener(bot))

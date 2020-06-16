@@ -1,2 +1,3 @@
 # Try_Bot
-test and try discord's bot
+Test and try discord's bot
+Using Ubuntu or other Linux to compile.
