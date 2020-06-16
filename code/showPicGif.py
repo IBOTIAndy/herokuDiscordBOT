@@ -15,12 +15,12 @@ class showPicGif(commands.Cog):
 
     @commands.command()
     async def rdrrN(self, ctx):
-        pic = discord.File('/home/linux/Desktop/IBOT/Try_Bot/pic/rdrr01.png')
+        pic = discord.File('./pic/rdrr01.png')
         await ctx.send(file = pic)
 
     @commands.command()
     async def LUL(self, ctx):
-        pic = discord.File('/home/linux/Desktop/IBOT/Try_Bot/pic/lul.png')
+        pic = discord.File('./pic/lul.png')
         await ctx.send(file = pic)
 
     @commands.command()
