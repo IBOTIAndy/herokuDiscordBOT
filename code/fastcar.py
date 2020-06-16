@@ -51,8 +51,11 @@ class fastcar(commands.Cog):
                     await ctx.send("404 not found. 發車到P網的同志翻車了\n")
             if len(arg) == 6:
                 output = data['nhentai'] + arg
-                await ctx.send("以下連結內容基本母湯，不建議在公開場合點擊，也有可能只是404而已\n")
-                await ctx.send('||' + output + '||')
+                if LDOAnhentai(output):
+                    await ctx.send("以下連結內容基本母湯，不建議在公開場合點擊\n")
+                    await ctx.send('||' + output + '||')
+                else:
+                    await ctx.send("404 not found. 發車到n網的同志翻車了\n")
         else:
             await ctx.send("Please input Num!")
 
@@ -71,7 +74,18 @@ def LDOApixiv(output):
 def LDOAnhentai(output):
     r = requests.get(output)
     soup = BeautifulSoup(r.text, "lxml")
-    return 1
+    try:
+        html = soup.find('h1').text
+        #print(html)
+        if html == '404 – Not Found':
+            return 0
+        else:
+            return 1
+    except AttributeError:
+        return 1
+    else:
+        #print(html + '\n')
+        print("I don't know what happen. Check Log first.\n")
         
 def setup(bot):
     bot.add_cog(fastcar(bot))
