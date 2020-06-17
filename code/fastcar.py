@@ -71,23 +71,29 @@ class fastcar(commands.Cog):
                     i = i + 1
 
     @commands.command()
-    async def Car(self, ctx, arg):
-        if arg.isdigit():
-            if len(arg) == 8:
-                output = data['Pixiv'] + arg
-                if LDOApixiv(output):
-                    await ctx.send('||' + output + '||')
-                else:
-                    await ctx.send("404 not found. 發車到P網的同志翻車了\n")
-            if len(arg) == 6:
-                output = data['nhentai'] + arg
-                if LDOAnhentai(output):
-                    await ctx.send("以下連結內容基本母湯，不建議在公開場合點擊\n")
-                    await ctx.send('||' + output + '||')
-                else:
-                    await ctx.send("404 not found. 發車到n網的同志翻車了\n")
+    async def Car(self, ctx, *args):
+        if len(args) != 0:
+            #print("good\n")
+            arg = str(args[0])
+            #print(arg + '\n')
+            if arg.isdigit():
+                if len(arg) == 8:
+                    output = data['Pixiv'] + arg
+                    if LDOApixiv(output):
+                        await ctx.send('以下連結飄出了來自P網的香氣\n' + '||' + output + '||')
+                    else:
+                        await ctx.send("404 not found. 發車到P網的同志翻車了\n")
+                if len(arg) == 6:
+                    output = data['nhentai'] + arg
+                    if LDOAnhentai(output):
+                        await ctx.send("以下連結內容基本母湯，不建議在公開場合點擊\n")
+                        await ctx.send('||' + output + '||')
+                    else:
+                        await ctx.send("404 not found. 發車到n網的同志翻車了\n")
+            else:
+                await ctx.send("Please input Num!")
         else:
-            await ctx.send("Please input Num!")
+            await ctx.send("input cannot be NULL!")
 
 def LDOApixiv(output):
     r = requests.get(output)

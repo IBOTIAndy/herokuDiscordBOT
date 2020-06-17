@@ -1,7 +1,7 @@
 #輸入Discord用的函式庫
 import discord
 from discord.ext import commands
-#from sympy import limit, Symbol, sin, oo
+from sympy import limit, Symbol, sin, oo
 import random
 import os
 import json
@@ -14,7 +14,7 @@ class cmds(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    #x = Symbol('x')
+    x = Symbol('x')
 
     try:
         #inputstr = format(message)
