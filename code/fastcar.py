@@ -7,6 +7,7 @@ import os
 import json
 import requests
 import re
+import random
 
 with open('set.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
@@ -39,6 +40,35 @@ class fastcar(commands.Cog):
                 await ctx.send("This html is too long that can't output.\n")
             else:
                 await ctx.send(html)
+
+    @commands.command()
+    async def RandomCar(self, ctx, arg):
+        if (arg == "p") or (arg == "P") or (arg == "pixiv") or (arg == "Pixiv"):
+            i=0
+            while(True):
+                output = data['Pixiv'] + str(random.randint(10000000, 99999999))
+                if LDOApixiv(output):
+                    if i != 0:
+                        await ctx.send("司機同志總共翻車了 " + str(i) + " 次")
+                    else:
+                        await ctx.send("太神拉 沒有翻車")
+                    await ctx.send('||' + output + '||' + "\n可能會有太香的東西 慎點")
+                    break
+                else:
+                    i = i + 1
+        elif (arg == "n") or (arg == "nhentai"):
+            i=0
+            while(True):
+                output = data['nhentai'] + str(random.randint(100000, 999999))
+                if LDOAnhentai(output):
+                    if i != 0:
+                        await ctx.send("司機同志總共翻車了 " + str(i) + " 次")
+                    else:
+                        await ctx.send("太神拉 沒有翻車")
+                    await ctx.send('||' + output + '||' + "\n三思而後行，前方連結極高概率讓您社會性死亡")
+                    break
+                else:
+                    i = i + 1
 
     @commands.command()
     async def Car(self, ctx, arg):
