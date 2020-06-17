@@ -29,6 +29,11 @@ class showPicGif(commands.Cog):
         await ctx.send(random_pic)
 
     @commands.command()
+    async def perfect(self, ctx):
+        pic = data['perfect']
+        await ctx.send(pic)
+
+    @commands.command()
     async def KoLianNa(self, ctx):
         pic = data['KoLianNa']
         await ctx.send(pic)
