@@ -1,6 +1,7 @@
 #輸入Discord用的函式庫
 import discord
 from discord.ext import commands
+#from sympy import limit, Symbol, sin, oo
 import random
 import os
 import json
@@ -13,11 +14,16 @@ class cmds(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    #x = Symbol('x')
+
     try:
         #inputstr = format(message)
         @commands.command()
         async def add(self, ctx, a: int, b: int):
             await ctx.send(a + b)
+
+        #@commands.command()
+        #async def limit(self, *, arg):
 
         @commands.command()
         async def ping(self, ctx):
