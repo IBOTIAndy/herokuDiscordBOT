@@ -16,31 +16,21 @@ class fastcar(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
-    async def NTUT(self, ctx, *, arg):
-        url = data['NTUT']
-        r = requests.get(url)
-        soup = BeautifulSoup(r.text, "lxml")
-
-        inputstring = arg
-        x = inputstring.split()
-        await ctx.send(x)
-    
-        if x[0] == "id":
-            html = soup.find(id = x[1]).text
-            await ctx.send(len(html))
-            if len(html) > 2000:
-                await ctx.send("This html is too long that can't output.\n")
-            else:
-                await ctx.send(html)
-
-        elif x[0] == "class":
-            html = soup.find(class_ = x[1]).text
-            if len(html) > 2000:
-                await ctx.send("This html is too long that can't output.\n")
-            else:
-                await ctx.send(html)
-
+#    @commands.command()
+#    async def Car(self, ctx, html):
+#        if (html == "p") or (html == "P") or (html == "pixiv") or (html == "Pixiv"):
+#            output = data['Pixiv'] + (random(10000000, 99999999) 
+#            if LDOApixiv(output):
+#                await ctx.send('||' + output + '||\n')
+#                await ctx.send("可能會有太香的東西 慎點\n")
+#            else:
+#                await ctx.send("404 not found. 發車到P網的同志翻車了\n")
+#        elif (html == "n") or (html == "nhentai"):
+#            output = data['nhentai'] + (random(100000, 999999) 
+#            await ctx.send('||' + output + '||')
+#        else:
+#           await ctx.send("plz enter \'!Car p\' or \'!Car n\'\n to use randomCar")
+       
     @commands.command()
     async def RandomCar(self, ctx, arg):
         if (arg == "p") or (arg == "P") or (arg == "pixiv") or (arg == "Pixiv"):
