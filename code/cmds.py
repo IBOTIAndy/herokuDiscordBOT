@@ -80,6 +80,10 @@ class cmds(commands.Cog):
     @commands.command()
     async def PS5(self, ctx):
         await ctx.send("這是空氣清淨機\n")
+    
+    @commands.command()
+    async def MH(self, ctx, s: str):
+        await ctx.send("牠弱散彈啦")
 
 #    except:
 #        print("請輸入可用指令。詳細資訊請輸入!help或!helps\n")
