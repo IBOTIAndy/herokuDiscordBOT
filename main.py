@@ -1,4 +1,4 @@
-#輸入Discord用的函式庫
+#輸入Discord用的函式庫 
 from discord.ext import commands
 from bs4 import BeautifulSoup
 from lxml import etree
