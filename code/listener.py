@@ -2,11 +2,16 @@ import discord
 from discord.ext import commands
 import os
 import json
+import random
 
 with open('set.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
 
 UBIimg = 0
+RIPdata = []
+RIPdata.append(data["shark_RIP"])
+RIPdata.append(data["gura_RIP"])
+randomRIP = random.choice([data["shark_RIP"], data["gura_RIP"]])
 
 class listener(commands.Cog):
     def __init__(self, bot):
@@ -28,6 +33,8 @@ class listener(commands.Cog):
 
         elif message.author != "Наш робот Discord#8637" and "盤" in message.content:
             await message.channel.send("{0.author}同志。『Pan』此字乃是資本主義的糜爛奢華之象徵，必須由共產人民團結一致共同打倒！\n".format(message))
+        elif (message.author != "上個香" in message.content or "上香" in message.content):
+            await message.channel.send(randomRIP)
 
 def setup(bot):
     bot.add_cog(listener(bot))
