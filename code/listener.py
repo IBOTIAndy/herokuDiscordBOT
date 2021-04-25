@@ -12,6 +12,7 @@ RIPdata = []
 RIPdata.append(data["shark_RIP"])
 RIPdata.append(data["gura_RIP"])
 randomRIP = random.choice([data["shark_RIP"], data["gura_RIP"]])
+AmeGood = data["AmeGood"]
 
 class listener(commands.Cog):
     def __init__(self, bot):
@@ -35,6 +36,9 @@ class listener(commands.Cog):
             await message.channel.send("{0.author}同志。『Pan』此字乃是資本主義的糜爛奢華之象徵，必須由共產人民團結一致共同打倒！\n".format(message))
         elif (message.author != "上個香" in message.content or "上香" in message.content):
             await message.channel.send(randomRIP)
+
+        elif message.author != "好耶" in message.content:
+            await message.channel.send(AmeGood)
 
 def setup(bot):
     bot.add_cog(listener(bot))

@@ -85,6 +85,10 @@ class cmds(commands.Cog):
     async def MH(self, ctx, s: str):
         await ctx.send("牠弱散彈啦")
 
+    @commands.command()
+    async def HowYa(self, ctx):
+        await ctx.send(data['AmeGood'])
+
 #    except:
 #        print("請輸入可用指令。詳細資訊請輸入!help或!helps\n")
 #        async def exception(self, ctx):
