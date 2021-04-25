@@ -35,7 +35,8 @@ class listener(commands.Cog):
         elif message.author != "Наш робот Discord#8637" and "盤" in message.content:
             await message.channel.send("{0.author}同志。『Pan』此字乃是資本主義的糜爛奢華之象徵，必須由共產人民團結一致共同打倒！\n".format(message))
         elif (message.author != "上個香" in message.content or "上香" in message.content):
-            await message.channel.send(randomRIP)
+            #await message.channel.send(randomRIP)
+            await message.channel.send(randomRipGif())
 
         elif message.author != "好耶" in message.content:
             await message.channel.send(AmeGood)
@@ -43,6 +44,13 @@ class listener(commands.Cog):
 def setup(bot):
     bot.add_cog(listener(bot))
 
+def randomRipGif():
+    randomNum = random.randint(0, 1)
+    print(randomNum)
+    if randomNum == 0:
+        return data["shark_RIP"]
+    else:
+        return data["gura_RIP"]
 
 
 
