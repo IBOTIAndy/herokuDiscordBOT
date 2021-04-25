@@ -45,12 +45,14 @@ def setup(bot):
     bot.add_cog(listener(bot))
 
 def randomRipGif():
-    randomNum = random.randint(0, 1)
+    randomNum = random.randint(0, 2)
     print(randomNum)
     if randomNum == 0:
         return data["shark_RIP"]
-    else:
+    elif randomNum == 1:
         return data["gura_RIP"]
+    else:
+        return data["shark_BigRIP"]
 
 
 
