@@ -89,6 +89,12 @@ class cmds(commands.Cog):
     async def HowYa(self, ctx):
         await ctx.send(data['AmeGood'])
 
+    @commands.command()
+    async def Marxist(self, ctx):
+        await ctx.send("立即學習馬克思主義，成為社會主義好青年!\n")
+        await ctx.send(data['Marxist'])
+   
+
 #    except:
 #        print("請輸入可用指令。詳細資訊請輸入!help或!helps\n")
 #        async def exception(self, ctx):
