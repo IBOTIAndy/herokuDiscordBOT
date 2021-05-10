@@ -45,6 +45,9 @@ class listener(commands.Cog):
         elif message.author != "好耶" in message.content:
             await message.channel.send(AmeGood)
 
+        elif message.author != "共產主義書單" in message.content:
+            await message.channel.send(data['Marxist'])
+
 def setup(bot):
     bot.add_cog(listener(bot))
 
