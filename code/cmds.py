@@ -83,7 +83,7 @@ class cmds(commands.Cog):
     
     @commands.command()
     async def MH(self, ctx, s: str):
-        await ctx.send("牠弱散彈啦")
+        await ctx.send("牠弱散彈啦\n")
 
     @commands.command()
     async def HowYa(self, ctx):
