@@ -34,10 +34,10 @@ class listener(commands.Cog):
         #elif message.content == "test":
         #    await message.channel.send('Message from {0.author}: {0.content}\n'.format(message))
 
-        elif message.author != "IBOTIAndy#1854" and "我們" in message.content:
+        elif message.author != "IBOTIBOT#1854" and "我們" in message.content:
             pass
 
-        elif message.author != "IBOTIAndy#1854" and "我" in message.content:
+        elif message.author != "IBOTIBOT#1854" and "我" in message.content:
             await message.channel.send("{0.author}同志。不單只是我，是「我們」\n".format(message))
 
         elif message.author != "Наш робот Discord#8637" and "盤" in message.content:
