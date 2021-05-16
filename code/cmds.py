@@ -93,6 +93,10 @@ class cmds(commands.Cog):
     async def Marxist(self, ctx):
         await ctx.send("立即學習馬克思主義，成為社會主義好青年!\n")
         await ctx.send(data['Marxist'])
+
+    @commands.command()
+    async def COVID(self, ctx):
+        await ctx.send("若有症狀發生(發燒, 上呼吸道不適, 呼吸急促, 味覺喪失等)請撥打防疫專線1922")
    
 
 #    except:
