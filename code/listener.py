@@ -13,6 +13,7 @@ RIPdata.append(data["shark_RIP"])
 RIPdata.append(data["gura_RIP"])
 randomRIP = random.choice([data["shark_RIP"], data["gura_RIP"]])
 AmeGood = data["AmeGood"]
+PepeCough = data["PepeCough"]
 
 class listener(commands.Cog):
     def __init__(self, bot):
@@ -26,6 +27,9 @@ class listener(commands.Cog):
 
         elif ("mac" in message.content) or ("macbook" in message.content) or ("iphone" in message.content):
             await message.channel.send('{0.author}同志想換美帝國主義的計算機? 判勞改10年\n'.format(message, ))
+
+        elif ("喉嚨癢" in message.content) or ("咳" in message.content) or ("確診" in message.content):
+            await message.channel.send(PepeCough)
 
         #elif message.content == "test":
         #    await message.channel.send('Message from {0.author}: {0.content}\n'.format(message))
