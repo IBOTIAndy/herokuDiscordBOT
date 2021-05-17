@@ -97,6 +97,13 @@ class cmds(commands.Cog):
     @commands.command()
     async def COVID(self, ctx):
         await ctx.send("若有症狀發生(發燒, 上呼吸道不適, 呼吸急促, 味覺喪失等)請撥打防疫專線1922")
+
+    @commands.command()
+    async def DPP(self, ctx):
+        await ctx.send("台灣不缺電, 只是會跳電, 我們一起人與人連結, 用愛發電。\n")
+        await ctx.send("這就是台灣價值啦,不然你要投國民黨? 不喜歡台灣就滾去對岸啦!\n")
+        await ctx.send("看好了世界，台灣只示範一次，在兩週內沒水沒電沒疫苗，只剩確診滿街跑。\n")
+        await ctx.send(data['Eletricity'])
    
 
 #    except:
