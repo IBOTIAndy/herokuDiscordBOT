@@ -25,6 +25,9 @@ class listener(commands.Cog):
             #await message.channel.send(randomRIP)
             await message.channel.send(randomRipGif())
 
+        elif message.author != "IBOTIBOT#1854" and "民進黨" in message.content:
+            await message.channel.send(data['DPP'])
+
         elif ("mac" in message.content) or ("macbook" in message.content) or ("iphone" in message.content):
             await message.channel.send('{0.author}同志想換美帝國主義的計算機? 判勞改10年\n'.format(message, ))
 
