@@ -104,6 +104,11 @@ class cmds(commands.Cog):
         await ctx.send("這就是台灣價值啦,不然你要投國民黨? 不喜歡台灣就滾去對岸啦!\n")
         await ctx.send("看好了世界，台灣只示範一次，在兩週內沒水沒電沒疫苗，只剩確診滿街跑。\n")
         await ctx.send(data['Eletricity'])
+
+    @commands.command()
+    async def NationalQuality(self, ctx):
+        await ctx.send("這就是台灣最美麗的「風景」, 美到不忍直視。\n")
+        await ctx.send(data['InOutInOut'])
    
 
 #    except:
