@@ -5,7 +5,7 @@ import random
 import os
 import json
 
-with open('set.json', 'r', encoding = 'utf8') as jfile:
+with open('url.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
 
 class showPicGif(commands.Cog):

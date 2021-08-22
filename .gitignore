@@ -2,11 +2,13 @@
 # 前面+ '!' 可反向為不要忽略 -> !*.c
 #*.json
 #set.json
+botToken.json
 
 # 忽略 config 目錄下的 database.yml 檔案
 # config/database.yml
 
 # 忽略 目錄下的資料夾
+code/__pycache__/*.pyc
 #*/bin/
 __pycache__/
 code/__pycache__/

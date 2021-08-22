@@ -9,7 +9,7 @@ import requests
 import re
 import random
 
-with open('set.json', 'r', encoding = 'utf8') as jfile:
+with open('url.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
 
 class fastcar(commands.Cog):

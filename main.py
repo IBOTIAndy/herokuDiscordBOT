@@ -6,7 +6,11 @@ import os
 import json
 import requests
 
-with open('set.json', 'r', encoding = 'utf8') as jfile:
+with open('botToken.json', 'r', encoding = 'utf8') as jfile:
+    botTokenJson = json.load(jfile)
+jfile.close()
+
+with open('url.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
 
 bot = commands.Bot(command_prefix='!')
@@ -36,4 +40,4 @@ async def on_member_remove(member):
     await channel.send(f'{member} 離開我們了，我們懷念他!')
 
 if __name__ == "__main__":
-    bot.run(data['DISCORD_TOKEN'])
+    bot.run(botTokenJson['DISCORD_TOKEN'])

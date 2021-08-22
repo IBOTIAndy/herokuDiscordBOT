@@ -8,7 +8,7 @@ import json
 import time
 #This is use vanilla command.
 
-with open('set.json', 'r', encoding = 'utf8') as jfile:
+with open('url.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
 
 class cmds(commands.Cog):
