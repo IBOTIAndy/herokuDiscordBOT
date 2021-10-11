@@ -23,6 +23,7 @@ bot.load_extension('code.fastcar')
 #當bot成功上線時輸出成功訊息
 @bot.event
 async def on_ready():
+    print(bot.user.id)
     print(bot.user, 'is ready.')
     for pyFile in os.listdir('./code'):
         print(pyFile)

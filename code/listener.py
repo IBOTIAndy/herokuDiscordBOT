@@ -21,39 +21,43 @@ class listener(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if (message.author != "上個香" in message.content or "上香" in message.content):
-            #await message.channel.send(randomRIP)
-            await message.channel.send(randomRipGif())
+#        printDetail(message) #開發階段用來確認內部資訊
+        authorName = getName(message.author) #取得暱稱nick(沒有則取得名稱name)
 
-        elif message.author != "IBOTIBOT#1854" and "民進黨" in message.content:
-            await message.channel.send(data['DPP'])
+        if ("test" in message.content):
+            await message.channel.send("a")
 
-        elif ("mac" in message.content) or ("macbook" in message.content) or ("iphone" in message.content):
-            await message.channel.send('{0.author}同志想換美帝國主義的計算機? 判勞改10年\n'.format(message, ))
+        #if (message.author.bot == True and message.author.discriminator != "1854"):
+        #    await message.channel.send(f"{message.author.name} hi")
 
-        elif ("喉嚨癢" in message.content) or ("咳" in message.content) or ("確診" in message.content):
-            await message.channel.send(PepeCough)
+        if ( not isBot(message.author) ): #如果該訊息不是bot發出的
+            if ( "上個香" in message.content or "上香" in message.content):
+                #await message.channel.send(randomRIP)
+                await message.channel.send(randomRipGif())
 
-        #elif message.content == "test":
-        #    await message.channel.send('Message from {0.author}: {0.content}\n'.format(message))
+            elif ( "民進黨" in message.content):
+                await message.channel.send(data['DPP'])
 
-        elif message.author != "IBOTIBOT#1854" and "我們" in message.content:
-            pass
+            elif (("mac" in message.content) or ("macbook" in message.content) or ("iphone" in message.content)):
+                await message.channel.send(f'{authorName}同志想換美帝國主義的計算機? 判勞改10年\n')
 
-        elif message.author != "IBOTIBOT#1854" and "我" in message.content:
-            await message.channel.send("{0.author}同志。不單只是我，是「我們」\n".format(message))
+            elif (("喉嚨癢" in message.content) or ("咳" in message.content) or ("確診" in message.content)):
+                await message.channel.send(PepeCough)
 
-        elif message.author != "Наш робот Discord#8637" and "盤" in message.content:
-            await message.channel.send("{0.author}同志。『Pan』此字乃是資本主義的糜爛奢華之象徵，必須由共產人民團結一致共同打倒！\n".format(message))
-        #elif (message.author != "上個香" in message.content or "上香" in message.content):
-            #await message.channel.send(randomRIP)
-            #await message.channel.send(randomRipGif())
+            elif ( "我們" in message.content):
+                pass
 
-        elif message.author != "好耶" in message.content:
-            await message.channel.send(AmeGood)
+            elif ( "我" in message.content):
+                await message.channel.send(f"{authorName}同志。不單只是我，是「我們」\n")
 
-        elif message.author != "共產主義書單" in message.content:
-            await message.channel.send(data['Marxist'])
+            elif ( "盤" in message.content):
+                await message.channel.send(f"{authorName}同志。『Pan』此字乃是資本主義的糜爛奢華之象徵，必須由共產人民團結一致共同打倒！\n")
+
+            elif ( "好耶" in message.content):
+                await message.channel.send(AmeGood)
+
+            elif ( "共產主義書單" in message.content):
+                await message.channel.send(data['Marxist'])
 
 def setup(bot):
     bot.add_cog(listener(bot))
@@ -68,6 +72,28 @@ def randomRipGif():
     else:
         return data["shark_BigRIP"]
 
+def isBot(author):
+    return author.bot
+
+def printDetail(message):
+    #print(message)
+    channel = message.channel
+    mType = message.type
+    user = message.author
+    server = message.author.guild
+    flags = message.flags
+    print("\nmessage:")
+    print(f"author say: {message.content}")
+    print(f"ID: {message.id}")
+    print(f"channel: {channel.name}, id: {channel.id}")
+    print(f"author(realName): {user.nick}({user.name})\nauthorID: {user.id}, author is bot: {user.bot}")
+    print(f"server(guild): {server.name}, id: {server.id}, memberCount: {server.member_count}")
+
+def getName(author):
+    name = author.name
+    if (author.nick != None):
+        name = author.nick
+    return name
 
 
 
