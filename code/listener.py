@@ -24,7 +24,9 @@ class listener(commands.Cog):
 #        printDetail(message) #開發階段用來確認內部資訊
         authorName = getName(message.author) #取得暱稱nick(沒有則取得名稱name)
 
-        if ("test" in message.content):
+        if ("autoDeleteTest" in message.content):
+            await message.channel.send("This message delete after 10 sec", delete_after=10.0)
+        elif ("test" in message.content):
             await message.channel.send("a")
 
         #if (message.author.bot == True and message.author.discriminator != "1854"):
@@ -39,7 +41,7 @@ class listener(commands.Cog):
                 await message.channel.send(data['DPP'])
 
             elif (("mac" in message.content) or ("macbook" in message.content) or ("iphone" in message.content)):
-                await message.channel.send(f'{authorName}同志想換美帝國主義的計算機? 判勞改10年\n')
+                await message.channel.send(f'{authorName}同志想換美帝國主義的計算機? 判勞改10年\n', delete_after=90.0)
 
             elif (("喉嚨癢" in message.content) or ("咳" in message.content) or ("確診" in message.content)):
                 await message.channel.send(PepeCough)
@@ -48,16 +50,16 @@ class listener(commands.Cog):
                 pass
 
             elif ( "我" in message.content):
-                await message.channel.send(f"{authorName}同志。不單只是我，是「我們」\n")
+                await message.channel.send(f"{authorName}同志。不單只是我，是「我們」\n", delete_after=90.0)
 
             elif ( "盤" in message.content):
-                await message.channel.send(f"{authorName}同志。『Pan』此字乃是資本主義的糜爛奢華之象徵，必須由共產人民團結一致共同打倒！\n")
+                await message.channel.send(f"{authorName}同志。『Pan』此字乃是資本主義的糜爛奢華之象徵，必須由共產人民團結一致共同打倒！\n", delete_after=90.0)
 
             elif ( "好耶" in message.content):
-                await message.channel.send(AmeGood)
+                await message.channel.send(AmeGood, delete_after=90.0)
 
             elif ( "共產主義書單" in message.content):
-                await message.channel.send(data['Marxist'])
+                await message.channel.send(data['Marxist'], delete_after=90.0)
 
 def setup(bot):
     bot.add_cog(listener(bot))

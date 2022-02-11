@@ -15,28 +15,28 @@ class showPicGif(commands.Cog):
     @commands.command()
     async def rdrrN(self, ctx):
         pic = discord.File('./pic/rdrr01.png')
-        await ctx.send(file = pic)
+        msg = await ctx.send(file = pic, delete_after=300.0)
 
     @commands.command()
     async def LUL(self, ctx):
         pic = discord.File('./pic/lul.png')
-        await ctx.send(file = pic)
+        await ctx.send(file = pic, delete_after=300.0)
 
     @commands.command()
     async def rdrrNWeb(self, ctx):
         random_pic = random.choice(data['Url_Pic'])
         #pic = ['Url_Pic']
-        await ctx.send(random_pic)
+        await ctx.send(random_pic, delete_after=300.0)
 
     @commands.command()
     async def perfect(self, ctx):
         pic = data['perfect']
-        await ctx.send(pic)
+        await ctx.send(pic, delete_after=300.0)
 
     @commands.command()
     async def KoLianNa(self, ctx):
         pic = data['KoLianNa']
-        await ctx.send(pic)
+        await ctx.send(pic, delete_after=300.0)
 
 def setup(bot):
     bot.add_cog(showPicGif(bot))
